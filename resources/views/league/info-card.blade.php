@@ -1,3 +1,4 @@
+@inject('leagueModel', 'App\Models\League')
 <div class="col-md-4">
     <div class="card">
         <div class="card-header">
@@ -19,6 +20,11 @@
                     <span class="badge bg-{{$league->status_css_class}} rounded-pill">{{ $league->status }}</span>
                 </li>
             </ul>
+{{--            @if($leagueModel::NOT_STARTED === $league->status)--}}
+{{--                <div class="d-grid mt-2">--}}
+{{--                    <a href="{{ url()->signedRoute('laith', $league) }}" class="btn btn-success btn">Start League</a>--}}
+{{--                </div>--}}
+{{--            @endif--}}
         </div>
     </div>
 </div>

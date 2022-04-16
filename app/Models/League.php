@@ -6,6 +6,7 @@ use App\Contracts\Constants;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @property string $status
@@ -48,7 +49,7 @@ class League extends Model
     protected function name(): Attribute
     {
         return Attribute::make(
-            get: fn ($value) => ucwords($value)
+            get: fn($value) => ucwords($value)
         );
     }
 
@@ -62,5 +63,15 @@ class League extends Model
         }
 
         return Constants::SECONDARY_CLASS;
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function teams(): BelongsToMany
+    {
+        return $this
+            ->belongsToMany(related: Team::class)
+            ->using(class: LeagueTeamStanding::class);
     }
 }
