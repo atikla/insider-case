@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $status
@@ -58,7 +59,7 @@ class League extends Model
      */
     public function getStatusCssClassAttribute(): string
     {
-        if (array_key_exists($this->status, self::STATUS_CSS_CLASSES)) {
+        if (array_key_exists(key: $this->status, array: self::STATUS_CSS_CLASSES)) {
             return self::STATUS_CSS_CLASSES[$this->status];
         }
 
@@ -73,5 +74,21 @@ class League extends Model
         return $this
             ->belongsToMany(related: Team::class)
             ->using(class: LeagueTeamStanding::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function standing(): HasMany
+    {
+        return $this->hasMany(LeagueTeamStanding::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function LeagueMatches(): HasMany
+    {
+        return $this->hasMany(related: LeagueMatch::class);
     }
 }

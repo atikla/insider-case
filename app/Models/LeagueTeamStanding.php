@@ -9,12 +9,7 @@ class LeagueTeamStanding extends Pivot
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
+    public const FILLABLE = [
         'played',
         'won',
         'drawn',
@@ -24,4 +19,13 @@ class LeagueTeamStanding extends Pivot
         'goals_difference',
         'points',
     ];
+
+    protected $table = 'league_team';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = self::FILLABLE;
 }

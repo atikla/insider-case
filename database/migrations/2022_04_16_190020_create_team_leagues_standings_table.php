@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('league_team_standings', function (Blueprint $table) {
+        Schema::create('league_team', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Team::class)->references('id')->on('teams');
             $table->foreignIdFor(League::class)->references('id')->on('leagues');
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('league_team_standings');
+        Schema::dropIfExists('league_team');
     }
 };

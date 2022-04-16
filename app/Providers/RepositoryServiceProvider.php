@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Contracts\Repositories\LeagueMatchRepositoryContract;
 use App\Contracts\Repositories\LeagueRepositoryContract;
 use App\Contracts\Repositories\LeagueTeamStandingRepositoryContract;
 use App\Contracts\Repositories\TeamRepositoryContract;
 use App\Contracts\Repositories\UserRepositoryContract;
+use App\Repositories\LeagueMatchRepository;
 use App\Repositories\LeagueRepository;
 use App\Repositories\LeagueTeamStandingRepository;
 use App\Repositories\TeamRepository;
@@ -35,6 +37,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(TeamRepositoryContract::class, TeamRepository::class);
         $this->app->bind(LeagueRepositoryContract::class, LeagueRepository::class);
         $this->app->bind(LeagueTeamStandingRepositoryContract::class, LeagueTeamStandingRepository::class);
+        $this->app->bind(LeagueMatchRepositoryContract::class, LeagueMatchRepository::class);
     }
 
     /**
