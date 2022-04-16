@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\Repositories\LeagueRepositoryContract;
 use App\Contracts\Repositories\TeamRepositoryContract;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -14,9 +15,17 @@ class HomeController extends Controller
      */
     private TeamRepositoryContract $teamRepository;
 
-    public function __construct(TeamRepositoryContract $teamRepository)
-    {
+    /**
+     * @var LeagueRepositoryContract
+     */
+    private LeagueRepositoryContract $leagueRepository;
+
+    public function __construct(
+        TeamRepositoryContract $teamRepository,
+        LeagueRepositoryContract $leagueRepository
+    ) {
         $this->teamRepository = $teamRepository;
+        $this->leagueRepository = $leagueRepository;
     }
 
     /**
@@ -25,6 +34,7 @@ class HomeController extends Controller
     public function index(): Factory|View|Application
     {
         return view('home', [
+            'leagues' => $this->leagueRepository->all(),
             'teams' => $this->teamRepository->all()->shuffle()
         ]);
     }
