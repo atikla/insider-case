@@ -3,11 +3,9 @@
 namespace App\Repositories;
 
 use App\Contracts\Repositories\BaseRepositoryContract;
-use App\Exceptions\Common\NotFoundException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection;
-use Symfony\Component\HttpFoundation\Response;
 
 abstract class BaseRepository implements BaseRepositoryContract
 {
@@ -36,7 +34,7 @@ abstract class BaseRepository implements BaseRepositoryContract
     /**
      * @param int $id
      * @return Model|null
-     * @throws NotFoundException
+     * @throws ModelNotFoundException
      */
     public function findOrFail(int $id): ?Model
     {
