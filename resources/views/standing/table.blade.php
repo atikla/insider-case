@@ -4,6 +4,7 @@
             <div class="table-responsive">
                 <table class="table" aria-label="team table">
                     <thead>
+                    <th>#</th>
                     <th>Teams</th>
                     <th>Played</th>
                     <th>Won</th>
@@ -17,7 +18,9 @@
                     <tbody>
                     @foreach($league->standing as $standing)
                         <tr>
-                            <td><img width="50" height="50" src="{{$standing->team->logo}}" alt="{{$standing->team->name}}">
+                            <td>{{ $loop->iteration  }}</td>
+                            <td><img width="50" height="50" src="{{$standing->team->logo}}"
+                                     alt="{{$standing->team->name}}">
                                 {{$standing->team->name}}
                             </td>
                             <td>{{$standing->played}}</td>
