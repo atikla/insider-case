@@ -1,5 +1,5 @@
 ### Project
-##### Insider Champions League [case-file](https://github.com/atikla/insider-case/blob/master/InsiderOnlineProject.pdf)
+##### Insider Champions League [case-file](https://github.com/atikla/insider-case/blob/main/InsiderOnlineProject.pdf)
 
 ### Setup project environment
 - you can run this command after clone git repository
