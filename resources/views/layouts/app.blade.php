@@ -41,7 +41,10 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-secondary text-light" href="{{ route('home') }}">Add New League</a>
+                        <form method="POST" action="{{route('league.store')}}">
+                            @csrf
+                            <input class="nav-link btn btn-secondary text-light" type="submit" value="Add New League">
+                        </form>
                     </li>
                 </ul>
             </div>

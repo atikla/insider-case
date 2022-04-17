@@ -5,6 +5,7 @@ use App\Http\Controllers\League\ResetLeagueController;
 use App\Http\Controllers\League\ShowLeagueController;
 use App\Http\Controllers\League\SimulationLeagueController;
 use App\Http\Controllers\League\StartLeagueController;
+use App\Http\Controllers\League\StoreLeagueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/league/')->name('league.')->group(function () {
+
+    Route::post('/', StoreLeagueController::class)->name('store');
 
     Route::get('/start/{league}/', StartLeagueController::class)
         ->middleware('signed')
