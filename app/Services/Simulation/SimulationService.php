@@ -81,6 +81,7 @@ class SimulationService
             $this->simulateMatch(match: $match);
         }
 
+        $this->week = null;
         if ($this->getMatchList()->isEmpty()) {
             $this->league->status = League::ENDED;
             $this->league->save();

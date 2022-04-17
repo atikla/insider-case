@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\League\ResetLeagueController;
 use App\Http\Controllers\League\ShowLeagueController;
 use App\Http\Controllers\League\SimulationLeagueController;
 use App\Http\Controllers\League\StartLeagueController;
@@ -31,5 +32,10 @@ Route::prefix('/league/')->name('league.')->group(function () {
     Route::get('/simulate/{league}/{week?}', SimulationLeagueController::class)
         ->middleware('signed')
         ->name('simulate');
+
+    Route::get('/reset/{league}/', ResetLeagueController::class)
+        ->middleware('signed')
+        ->name('reset');
+
 });
 

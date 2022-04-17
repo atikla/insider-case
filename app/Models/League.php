@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property string $status
  * @property int $id
+ * @property mixed $standing
+ * @property mixed $leagueMatches
  */
 class League extends Model
 {

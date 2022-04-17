@@ -41,9 +41,9 @@
                     </a>
                 </div>
             @endif
-            @if($leagueModel::ENDED === $league->status)
+            @if($leagueModel::NOT_STARTED !== $league->status)
                 <div class="d-grid mt-2">
-                    <a class="btn btn-{{$league->status_css_class}} mt-2 w-100" href="{{ url()->signedRoute('league.simulate', [$league])  }}">
+                    <a class="btn btn-danger mt-2 w-100" href="{{ url()->signedRoute('league.reset', [$league])  }}">
                         Reset League
                     </a>
                 </div>

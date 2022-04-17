@@ -36,8 +36,7 @@ class StartLeagueController extends Controller
         }
 
         $teams = $teamRepository->all();
-        $teamCount = 4;
-//        $teamCount = rand(2, round(($teams->count()/ 2), 0, PHP_ROUND_HALF_DOWN)) * 2;
+        $teamCount = rand(2, round(($teams->count()/ 2), 0, PHP_ROUND_HALF_DOWN)) * 2;
 
         $teams = $teams->shuffle()->slice(0, $teamCount);
 

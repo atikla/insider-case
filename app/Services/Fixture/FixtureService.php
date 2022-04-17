@@ -17,11 +17,6 @@ class FixtureService
     /**
      * @var int
      */
-    private int $teamCount;
-
-    /**
-     * @var int
-     */
     private int $weekCount;
 
     /**
@@ -103,8 +98,7 @@ class FixtureService
     public function setTeams(Collection $teams): self
     {
         $this->teams = $teams;
-        $this->teamCount = $this->teams->count();
-        $this->weekCount = ($this->teamCount - 1) * 2;
+        $this->weekCount = ($this->teams->count() - 1) * 2;
         $this->nextWeek = 1;
 
         return $this;
