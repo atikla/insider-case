@@ -22,6 +22,10 @@
                     <span class="badge bg-primary rounded-pill">{{ $league->LeagueMatches->where('status', 0)->count() }}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Remind Week Count
+                    <span class="badge bg-primary rounded-pill">{{ $league->total_week - $league->played_week}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                     Status
                     <span class="badge bg-{{$league->status_css_class}} rounded-pill">{{ $league->status }}</span>
                 </li>

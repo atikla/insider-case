@@ -6,7 +6,7 @@
         <ul class="list-group">
             @foreach($predictions as $logo => $prediction)
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <img src="{{$prediction['logo']}}" width="35" height="35">
+                    <img src="{{$prediction['logo']}}" width="35" height="35" alt="">
                     <span class="badge bg-primary rounded-pill">{{ $prediction['rate'] }}%</span>
                 </li>
             @endforeach
