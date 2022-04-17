@@ -73,6 +73,7 @@ class SimulationService
     public function simulate()
     {
         $matches = $this->getMatchList();
+        $weekCount = $matches->groupBy('week')->count();
         foreach ($matches as $match) {
             $this->homeTeam = $match->homeTeam;
             $this->awayTeam = $match->awayTeam;
@@ -81,11 +82,14 @@ class SimulationService
             $this->simulateMatch(match: $match);
         }
 
+        $this->league->played_week = $this->league->played_week + $weekCount;
         $this->week = null;
+
         if ($this->getMatchList()->isEmpty()) {
             $this->league->status = League::ENDED;
-            $this->league->save();
         }
+
+        $this->league->save();
     }
 
     /**

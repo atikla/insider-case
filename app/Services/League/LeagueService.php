@@ -29,6 +29,6 @@ class LeagueService
             'status' => 0
         ]);
 
-        $league->update(['status' => League::STARTED]);
+        $league->update(['status' => League::STARTED, 'played_week' => 0]);
     }
 }

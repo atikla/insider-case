@@ -13,6 +13,7 @@ use Illuminate\Support\Collection;
  * @property mixed $awayMatches
  * @property mixed $homeMatches
  * @property mixed $strength
+ * @property mixed $matches
  */
 class Team extends Model
 {
@@ -84,5 +85,14 @@ class Team extends Model
     public function getMatchesAttribute(): Collection
     {
         return $this->homeMatches->merge($this->awayMatches)->unique();
+    }
+
+    /**
+     * @param int $leagueId
+     * @return Collection
+     */
+    public function leagueMatches(int $leagueId): Collection
+    {
+        return $this->matches->where('league_id', $leagueId);
     }
 }

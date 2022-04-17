@@ -12,8 +12,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @property string $status
  * @property int $id
+ * @property int $played_week
+ * @property int $total_week
  * @property mixed $standing
  * @property mixed $leagueMatches
+ * @property mixed $teams
  */
 class League extends Model
 {
@@ -42,7 +45,8 @@ class League extends Model
      */
     protected $fillable = [
         'name',
-        'status'
+        'status',
+        'played_week'
     ];
 
     /**
@@ -84,7 +88,10 @@ class League extends Model
      */
     public function standing(): HasMany
     {
-        return $this->hasMany(LeagueTeamStanding::class);
+        return $this->hasMany(LeagueTeamStanding::class)
+            ->orderByDesc('points')
+            ->orderByDesc('goals_for')
+            ->orderBy('goals_difference', 'ASC');
     }
 
     /**

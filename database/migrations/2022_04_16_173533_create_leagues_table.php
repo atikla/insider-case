@@ -17,6 +17,8 @@ return new class extends Migration
         Schema::create('leagues', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('played_week')->default(0);
+            $table->integer('total_week')->default(0);
             $table->enum('status', League::LEAGUE_STATUS)->default(League::NOT_STARTED);
             $table->timestamps();
         });

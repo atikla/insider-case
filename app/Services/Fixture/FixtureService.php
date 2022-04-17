@@ -53,6 +53,8 @@ class FixtureService
         $this->createLeagueTeamStanding();
         $this->createLeagueMatches($calendar);
 
+        $this->league->total_week = $this->weekCount;
+
         return true;
     }
 

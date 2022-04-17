@@ -15,7 +15,7 @@
                     <th>Points</th>
                     </thead>
                     <tbody>
-                    @foreach($league->standing->sortBy([['points', 'desc'], ['goals_for', 'desc']]) as $standing)
+                    @foreach($league->standing as $standing)
                         <tr>
                             <td><img width="50" height="50" src="{{$standing->team->logo}}" alt="{{$standing->team->name}}">
                                 {{$standing->team->name}}

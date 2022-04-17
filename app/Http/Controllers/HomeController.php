@@ -35,7 +35,7 @@ class HomeController extends Controller
     {
         return view('home', [
             'leagues' => $this->leagueRepository->all(),
-            'teams' => $this->teamRepository->all()->shuffle()
+            'teams' => $this->teamRepository->all()
         ]);
     }
 }
