@@ -42,9 +42,7 @@ class FixtureService
     /**
      * @param LeagueTeamStandingService $leagueTeamStandingService
      */
-    public function __construct(
-        LeagueTeamStandingService $leagueTeamStandingService
-    )
+    public function __construct(LeagueTeamStandingService $leagueTeamStandingService)
     {
         $this->leagueTeamStandingService = $leagueTeamStandingService;
     }

@@ -6,7 +6,9 @@
             <div class="col-md-8">
                 @include('standing.table', $league)
             </div>
-            @include('league.info-card', ['league' => $league, 'header' => false])
+            <div class="col-md-4">
+                @include('league.info-card', ['league' => $league, 'header' => false, 'class' => ''])
+            </div>
         </div>
         <div class="col-md-8">
             <h3>Matches</h3>

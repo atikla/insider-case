@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\League\ShowLeagueController;
+use App\Http\Controllers\League\SimulationLeagueController;
 use App\Http\Controllers\League\StartLeagueController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,9 @@ Route::prefix('/league/')->name('league.')->group(function () {
 
     Route::get('/{league}/', ShowLeagueController::class)
         ->name('show');
+
+    Route::get('/simulate/{league}/{week?}', SimulationLeagueController::class)
+        ->middleware('signed')
+        ->name('simulate');
 });
 

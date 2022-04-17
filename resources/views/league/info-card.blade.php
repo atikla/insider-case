@@ -28,10 +28,24 @@
             </ul>
             @if($leagueModel::NOT_STARTED === $league->status)
                 <div class="d-grid mt-2">
-                    <a href="{{ url()->signedRoute('league.start', $league) }}" class="btn btn-success btn">
+                    <a href="{{ url()->signedRoute('league.start', $league) }}" class="btn btn-{{$league->status_css_class}} btn">
                         Start League And Run Fixtures
                     </a>
                     <small class="text-secondary"><sup>*</sup>Team Count Will be Random number (max: team conut)</small>
+                </div>
+            @endif
+            @if($leagueModel::STARTED === $league->status)
+                <div class="d-grid mt-2">
+                    <a class="btn btn-{{$league->status_css_class}} mt-2 w-100" href="{{ url()->signedRoute('league.simulate', [$league])  }}">
+                        Simulate All Weeks
+                    </a>
+                </div>
+            @endif
+            @if($leagueModel::ENDED === $league->status)
+                <div class="d-grid mt-2">
+                    <a class="btn btn-{{$league->status_css_class}} mt-2 w-100" href="{{ url()->signedRoute('league.simulate', [$league])  }}">
+                        Reset League
+                    </a>
                 </div>
             @endif
         </div>

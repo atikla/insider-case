@@ -25,7 +25,7 @@
     </div>
     @if($week->firstWhere('status', 0))
         <div class="card-footer text-center">
-            <a class="btn btn-success">Simulate {{$week->first()->week}} Week Matches</a>
+            <a href="{{ url()->signedRoute('league.simulate', [$match->league, $week->first()->week])  }}" class="btn btn-success">Simulate {{$week->first()->week}} Week Matches</a>
         </div>
     @endif
 </div>

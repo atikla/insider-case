@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 /**
  * @property mixed $awayMatches
  * @property mixed $homeMatches
+ * @property mixed $strength
  */
 class Team extends Model
 {

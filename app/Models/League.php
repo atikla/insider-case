@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string $status
+ * @property int $id
  */
 class League extends Model
 {
@@ -27,7 +28,7 @@ class League extends Model
     ];
 
     public const STATUS_CSS_CLASSES = [
-        self::NOT_STARTED => Constants::INFO_CLASS,
+        self::NOT_STARTED => Constants::SECONDARY_CLASS,
         self::STARTED => Constants::SUCCESS_CLASS,
         self::ENDED => Constants::DANGER_CLASS
     ];
