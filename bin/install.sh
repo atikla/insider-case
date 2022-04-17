@@ -1,6 +1,5 @@
-# npm install
-npm install && npm run dev
+# composer install
+composer install
 # migrate and seed
 php artisan migrate
-php artisan db:seed
 echo "Install Done!"
