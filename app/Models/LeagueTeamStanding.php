@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class LeagueTeamStanding extends Pivot
@@ -30,4 +31,12 @@ class LeagueTeamStanding extends Pivot
      * @var array<int, string>
      */
     protected $fillable = self::FILLABLE;
+
+    /**
+     * @return BelongsTo
+     */
+    public function team(): BelongsTo
+    {
+        return $this->belongsTo(related:Team::class);
+    }
 }

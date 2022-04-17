@@ -1,10 +1,12 @@
 @inject('leagueModel', 'App\Models\League')
-<div class="col-md-4">
+<div class="{{ $class ?? 'col-md-4' }}">
     <div class="card">
-        <div class="card-header">
-            {{ $league->name }}
-            <a class="btn btn-primary float-end pe-auto p-0 px-2">Details</a>
-        </div>
+        @if($header ?? true)
+            <div class="card-header">
+                {{ $league->name }}
+                <a href="{{route('league.show', $league)}}" class="btn btn-primary float-end pe-auto p-0 px-2">Details</a>
+            </div>
+        @endif
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -29,7 +31,7 @@
                     <a href="{{ url()->signedRoute('league.start', $league) }}" class="btn btn-success btn">
                         Start League And Run Fixtures
                     </a>
-                    <small class="text-secondary"><sup>*</sup>Team Count Will be Random even number</small>
+                    <small class="text-secondary"><sup>*</sup>Team Count Will be Random number (max: team conut)</small>
                 </div>
             @endif
         </div>

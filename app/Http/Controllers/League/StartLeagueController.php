@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\League;
 
+use App\Contracts\Constants;
 use App\Contracts\Repositories\TeamRepositoryContract;
 use App\Http\Controllers\Controller;
 use App\Models\League;
@@ -27,8 +28,16 @@ class StartLeagueController extends Controller
         FixtureService $fixtureService
     ): RedirectResponse
     {
+        if ($league->status !== League::NOT_STARTED) {
+            return redirect()->route('home')->with('session-alert', [
+                'class' => Constants::DANGER_CLASS,
+                'alert' => 'this league is already stared'
+            ]);
+        }
+
         $teams = $teamRepository->all();
-        $teamCount = rand(2, round(($teams->count()/ 2), 0, PHP_ROUND_HALF_DOWN)) * 2;
+        $teamCount = 4;
+//        $teamCount = rand(2, round(($teams->count()/ 2), 0, PHP_ROUND_HALF_DOWN)) * 2;
 
         $teams = $teams->shuffle()->slice(0, $teamCount);
 
@@ -39,6 +48,6 @@ class StartLeagueController extends Controller
 
         $league->update(['status' => League::STARTED]);
 
-        return redirect()->route('home');
+        return redirect()->route('league.show', $league);
     }
 }
