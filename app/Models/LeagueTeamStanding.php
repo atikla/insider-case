@@ -10,6 +10,8 @@ class LeagueTeamStanding extends Pivot
     use HasFactory;
 
     public const FILLABLE = [
+        'team_id',
+        'league_id',
         'played',
         'won',
         'drawn',

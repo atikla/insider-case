@@ -16,6 +16,8 @@ class LeagueMatch extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'home_team',
+        'away_team',
         'week',
         'home_team_goal',
         'away_team_goal',
