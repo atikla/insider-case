@@ -14,3 +14,6 @@
 - phpmyadmin: ``http://localhost:10001/``
 - seed inital data
 - ``docker-compose exec php php artisan db:seed``
+
+#### Notes
+- Because the project was wanted to be developed in a limited time, the project has some places to will be refactored
