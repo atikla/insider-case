@@ -8,12 +8,11 @@
 - after clone repository you have to run those two command to build your environment on docker
 - ``docker-compose up -d --build``
 - ``docker-compose exec php /bin/bash bin/install.sh``
+- ``docker-compose exec php php artisan db:seed``
 - when commands done you will have running project with php8, nginx, mysql@8, phpmyadmin in your localhost
 - project: ``http://localhost:10002/``
 - mysql: ``http://localhost:10000/``
 - phpmyadmin: ``http://localhost:10001/``
-- seed inital data
-- ``docker-compose exec php php artisan db:seed``
 
 #### Notes
 - Because the project was wanted to be developed in a limited time, the project has some places to will be refactored
