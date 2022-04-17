@@ -5,7 +5,7 @@
             <div class="row justify-content-between">
                 <div class="col-4 text-center">
                     <div>
-                        <img width="50" height="50" src="{{$match->homeTeam->logo}}">
+                        <img width="50" height="50" src="{{$match->homeTeam->logo}}" alt="{{$match->homeTeam->name}}">
                         <p>{{$match->homeTeam->name}}</p>
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-4 text-center">
                     <div>
-                        <img width="50" height="50" src="{{$match->awayTeam->logo}}">
+                        <img width="50" height="50" src="{{$match->awayTeam->logo}}" alt="{{$match->homeTeam->name}}">
                         <p>{{$match->awayTeam->name}}</p>
                     </div>
                 </div>

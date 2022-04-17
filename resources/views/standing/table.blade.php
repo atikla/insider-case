@@ -2,7 +2,7 @@
     <div class="col-md-12">
         @if($league->standing)
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" aria-label="team table">
                     <thead>
                     <th>Teams</th>
                     <th>Played</th>
@@ -17,7 +17,7 @@
                     <tbody>
                     @foreach($league->standing->sortByDesc('points') as $standing)
                         <tr>
-                            <td><img width="50" height="50" src="{{$standing->team->logo}}">
+                            <td><img width="50" height="50" src="{{$standing->team->logo}}" alt="{{$standing->team->name}}">
                                 {{$standing->team->name}}
                             </td>
                             <td>{{$standing->played}}</td>
