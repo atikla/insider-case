@@ -15,8 +15,7 @@
 - phpmyadmin: ``http://localhost:10001/``
 
 ### deployed project
-- you can access to running deploy project from this address
-- ``https://insider-case.herokuapp.com/``
+- you can access to running deploy project from this [ADDRESS](https://insider-case.herokuapp.com/)
 
 #### Notes
 - Because the project was wanted to be developed in a limited time, the project has some places to will be refactored
