@@ -5,15 +5,11 @@ namespace App\Services\RoundRobinScheduler;
 class RoundRobinSchedulerAlgorithm
 {
     /**
-     * @param $teamsInRound
+     * @param array $teamsInRound
      * @return array
      */
-    public static function run($teamsInRound): array
+    public static function run(array $teamsInRound): array
     {
-        if (!is_array($teamsInRound)) {
-            throw new \InvalidArgumentException('RoundRobinSchedulerAlgorithm expects an array of teams');
-        }
-
         $teamsCount = count($teamsInRound);
 
         if ($teamsCount === 0) {
