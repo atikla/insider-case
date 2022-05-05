@@ -12,6 +12,8 @@ yarn-error.log
 /.idea
 /.vscode
 /demo/*
+/public/js
+/public/css
 /public/demo/*
 docker/data
 .env
